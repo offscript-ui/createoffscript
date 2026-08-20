@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Off Scripts: Production for freshly funded startups</title>
+<meta name="description" content="End-to-end production and brand content for pre-seed and YC/a16z-backed startups that haven't built an in-house production function yet.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lp.css">
+</head>
+<body>
+
+<header class="lp-header">
+  <a class="logo" href="https://offscript-ui.github.io/createoffscript/">off<b>script</b></a>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <h1>You raised. Your brand still looks like the deck template.</h1>
+    <p class="sub">End-to-end production and brand content for founders who just closed a round and have zero time to also become a production company.</p>
+    <a class="btn btn-primary" href="#lp-form">Show me what you've got</a>
+  </section>
+
+  <section class="wrap">
+    <h2>What usually happens after a raise</h2>
+    <ul class="diagnosis">
+      <li>The brand is the thing nobody on the team actually owns.</li>
+      <li>The site and the deck are still holding the whole story together on founder-shot video and stock photography.</li>
+      <li>Hiring a full-time production or brand person is a three-month detour you don't have time for right now.</li>
+      <li>Every freelancer you've talked to needs you to direct them, which is another job you didn't sign up for.</li>
+    </ul>
+  </section>
+
+  <section class="wrap">
+    <h2>What actually happens</h2>
+    <ul class="mechanism">
+      <li><b>Pre-production.</b> The concept and the shot list get built around what you're actually trying to say, not a generic template.</li>
+      <li><b>Shoot.</b> One end-to-end production, run start to finish, no in-house crew required.</li>
+      <li><b>Edit and deliver.</b> Finished, ready-to-post content, not raw footage you still have to figure out.</li>
+    </ul>
+    <p style="margin-top: var(--s24)">If you want it, the whole production function can sit outside your company entirely. You focus on the round after this one.</p>
+  </section>
+
+  <section class="wrap">
+    <p class="not-this">Not another freelancer you have to direct yourself. Not stock footage with your logo pasted on it.</p>
+  </section>
+
+  <section class="wrap" id="lp-form">
+    <div class="qualify">
+      <h2>Before you fill this out</h2>
+      <ul>
+        <li>US-based company</li>
+        <li>Pre-seed, or backed by Y Combinator or a16z</li>
+        <li>No in-house production or brand function built yet</li>
+      </ul>
+    </div>
+
+    <form class="lp-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="c750f34e-7cbf-44be-a55c-4380eb87fbd4">
+      <input type="hidden" name="subject" value="OFFSCRIPT-LEAD | production">
+      <input type="hidden" name="from_name" value="Offscript Landing Page">
+      <input type="hidden" name="segment" value="production">
+      <input type="hidden" name="lp_variant" value="production-v1">
+      <input type="hidden" name="redirect" value="https://offscript-ui.github.io/createoffscript/lp/thanks/?s=production">
+      <input type="hidden" name="utm_source" id="utm_source" value="">
+      <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">Work email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company">
+      </div>
+      <div>
+        <label for="website">Website</label>
+        <input type="url" id="website" name="website" placeholder="https://">
+      </div>
+      <div>
+        <label for="phone">Phone <span class="optional-tag">(optional, only if you'd rather get a text)</span></label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+      <div>
+        <label for="message">What are you building, and what's missing on the brand side?</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Send it over</button>
+    </form>
+
+    <div class="fallback">
+      <p>Rather just talk it through?</p>
+      <a class="btn btn-secondary" href="https://calendly.com/suriavi51/new-meeting" target="_blank" rel="noopener noreferrer">Book 20 minutes</a>
+    </div>
+  </section>
+</main>
+
+<footer class="lp-footer">
+  <div class="wrap">
+    <p>Off Scripts &middot; <a href="mailto:offscript.creativestudio@gmail.com">offscript.creativestudio@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var utm = params.get('utm_source');
+    if (utm) document.getElementById('utm_source').value = utm;
+  })();
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"your_beacon_token_here"}'></script>
+
+</body>
+</html>

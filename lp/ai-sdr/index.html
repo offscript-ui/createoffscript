@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Off Scripts: AI SDR for teams tired of slow follow-up</title>
+<meta name="description" content="An AI system that qualifies, follows up on, and books your inbound and outbound leads. Nothing sits unanswered.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lp.css">
+</head>
+<body>
+
+<header class="lp-header">
+  <a class="logo" href="https://offscript-ui.github.io/createoffscript/">off<b>script</b></a>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <h1>Your leads aren't the problem. Your follow-up is.</h1>
+    <p class="sub">An AI system that qualifies, follows up on, and books your inbound and outbound leads. Every lead gets answered. Even the one that comes in at 11pm.</p>
+    <a class="btn btn-primary" href="#lp-form">Show me what's breaking</a>
+  </section>
+
+  <section class="wrap">
+    <h2>You already know this part</h2>
+    <ul class="diagnosis">
+      <li>A lead comes in and sits there for six hours before anyone gets to it.</li>
+      <li>You already bought an automation that was supposed to fix this. It didn't.</li>
+      <li>The one you tried felt robotic, so people stopped replying to it.</li>
+      <li>The last agency ran the exact same playbook on you as everyone else on their client list.</li>
+    </ul>
+  </section>
+
+  <section class="wrap">
+    <h2>What actually happens</h2>
+    <ul class="mechanism">
+      <li><b>Source.</b> Cold email lead generation runs in the background, so volume doesn't depend on you remembering to prospect.</li>
+      <li><b>Qualify.</b> Every reply and every inbound lead gets read and sorted before a human ever has to look at it.</li>
+      <li><b>Follow up.</b> The system stays on a lead until it's booked or genuinely dead. Not one message and silence.</li>
+    </ul>
+  </section>
+
+  <section class="wrap">
+    <p class="not-this">This isn't a renamed n8n template with a chatbot bolted on. It's built to sound like a person who read what you wrote, because it did.</p>
+  </section>
+
+  <section class="wrap" id="lp-form">
+    <div class="qualify">
+      <h2>Before you fill this out</h2>
+      <ul>
+        <li>US company, small to mid size</li>
+        <li>You're either missing leads or missing follow-up, not neither</li>
+        <li>You want this handled, not a dashboard to babysit</li>
+      </ul>
+    </div>
+
+    <form class="lp-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="c750f34e-7cbf-44be-a55c-4380eb87fbd4">
+      <input type="hidden" name="subject" value="OFFSCRIPT-LEAD | ai-sdr">
+      <input type="hidden" name="from_name" value="Offscript Landing Page">
+      <input type="hidden" name="segment" value="ai-sdr">
+      <input type="hidden" name="lp_variant" value="ai-sdr-v1">
+      <input type="hidden" name="redirect" value="https://offscript-ui.github.io/createoffscript/lp/thanks/?s=ai-sdr">
+      <input type="hidden" name="utm_source" id="utm_source" value="">
+      <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">Work email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company">
+      </div>
+      <div>
+        <label for="website">Website</label>
+        <input type="url" id="website" name="website" placeholder="https://">
+      </div>
+      <div>
+        <label for="phone">Phone <span class="optional-tag">(optional, only if you'd rather get a text)</span></label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+      <div>
+        <label for="message">What's breaking right now?</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Send it over</button>
+    </form>
+
+    <div class="fallback">
+      <p>Rather just talk it through?</p>
+      <a class="btn btn-secondary" href="https://calendly.com/suriavi51/new-meeting" target="_blank" rel="noopener noreferrer">Book 20 minutes</a>
+    </div>
+  </section>
+</main>
+
+<footer class="lp-footer">
+  <div class="wrap">
+    <p>Off Scripts &middot; <a href="mailto:offscript.creativestudio@gmail.com">offscript.creativestudio@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var utm = params.get('utm_source');
+    if (utm) document.getElementById('utm_source').value = utm;
+  })();
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"your_beacon_token_here"}'></script>
+
+</body>
+</html>
