@@ -1,0 +1,219 @@
+/* Shared landing-page styles for the gtm system.
+   Tokens copied verbatim from the live site's :root block (verified against
+   the actual deployed HTML, not a paraphrase) so these pages match the
+   brand exactly.
+
+   Deliberately NOT reused from index.html: the custom cursor (cursor:none +
+   .js-cur/.js-ring), scroll-reveal animation, and the nav drawer. Reasons:
+   cursor:none is a real conversion risk on a page whose only job is a form,
+   and every extra line of JS here is a line the weekly optimization step
+   could accidentally break. Keep these pages simpler than the main site on
+   purpose.
+
+   This file is CSS only. The optimization loop (gtm/RUNBOOK.md step 8)
+   edits HTML body copy, never this file - keeping them separate is what
+   makes that constraint enforceable. */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #F5F1EB;
+  --cream-dim: #EDE8E0;
+  --off: #FAF8F4;
+  --ink: #0E0E0E;
+  --gold: #C9A84C;
+  --gold-hi: #D4B060;
+  --grey: #7A7470;
+
+  --on-light-hi: #0E0E0E;
+  --on-light-body: rgba(14,14,14,.78);
+  --on-light-muted: rgba(14,14,14,.52);
+
+  --rule-light: rgba(14,14,14,.09);
+
+  --s4:4px; --s8:8px; --s12:12px; --s16:16px; --s20:20px; --s24:24px;
+  --s28:28px; --s32:32px; --s40:40px; --s48:48px; --s56:56px; --s64:64px;
+  --s80:80px; --s96:96px;
+
+  --pad: clamp(20px, 5.5vw, 96px);
+  --max: 760px;
+  --gap: clamp(32px, 5vw, 80px);
+  --section-py: clamp(56px, 8vw, 96px);
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a, button { -webkit-tap-highlight-color: transparent; outline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); }
+img { display: block; max-width: 100%; }
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+header.lp-header {
+  padding: var(--s32) var(--pad) var(--s16);
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -.3px;
+}
+.logo b { font-style: normal; font-weight: 900; }
+
+main { padding: 0 0 var(--section-py); }
+
+section { padding: var(--section-py) 0; }
+section + section { border-top: 1px solid var(--rule-light); }
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5.5vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -.5px;
+  color: var(--on-light-hi);
+  margin-bottom: var(--s16);
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.25;
+  margin-bottom: var(--s20);
+}
+.sub {
+  font-size: 19px;
+  color: var(--on-light-body);
+  max-width: 46ch;
+  margin-bottom: var(--s32);
+}
+p { color: var(--on-light-body); }
+p + p { margin-top: var(--s16); }
+
+ul.diagnosis, ul.mechanism {
+  list-style: none;
+  display: grid;
+  gap: var(--s16);
+}
+ul.diagnosis li, ul.mechanism li {
+  padding: var(--s16) var(--s20);
+  background: var(--off);
+  border: 1px solid var(--rule-light);
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--on-light-body);
+}
+ul.mechanism li b {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: var(--gold);
+  display: inline-block;
+  margin-right: var(--s8);
+}
+
+.not-this {
+  border-left: 3px solid var(--gold);
+  padding-left: var(--s20);
+  font-style: italic;
+  color: var(--on-light-body);
+}
+
+.qualify {
+  background: var(--cream-dim);
+  border: 1px solid var(--rule-light);
+  border-radius: 4px;
+  padding: var(--s24);
+}
+.qualify h2 { font-size: 18px; margin-bottom: var(--s12); }
+.qualify ul { list-style: none; display: grid; gap: var(--s8); }
+.qualify li { font-size: 15px; color: var(--on-light-body); }
+.qualify li::before { content: "→ "; color: var(--gold); font-weight: 700; }
+
+form.lp-form { display: grid; gap: var(--s16); margin-top: var(--s8); }
+.lp-form label {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: var(--s8);
+}
+.lp-form input, .lp-form textarea {
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  padding: var(--s12) var(--s16);
+  background: var(--off);
+  border: 1px solid var(--rule-light);
+  border-radius: 4px;
+  color: var(--ink);
+}
+.lp-form input:focus, .lp-form textarea:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+.lp-form textarea { min-height: 100px; resize: vertical; }
+.lp-form .optional-tag { color: var(--grey); font-weight: 400; text-transform: none; }
+.hidden { display: none !important; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s8);
+  padding: var(--s16) var(--s28);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary { background: var(--ink); color: var(--off); }
+.btn-primary:hover { background: var(--gold); color: var(--ink); }
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule-light);
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+.fallback {
+  margin-top: var(--s40);
+  padding-top: var(--s32);
+  border-top: 1px solid var(--rule-light);
+  text-align: center;
+}
+.fallback p { margin-bottom: var(--s16); }
+
+footer.lp-footer {
+  padding: var(--s32) var(--pad) var(--s64);
+  font-size: 13px;
+  color: var(--grey);
+}
+footer.lp-footer a { color: var(--grey); }
+footer.lp-footer .legal { margin-top: var(--s12); max-width: 60ch; line-height: 1.6; }
+
+@media (max-width: 560px) {
+  :root { --pad: 20px; }
+  body { font-size: 16px; }
+}
