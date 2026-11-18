@@ -43,6 +43,23 @@
     rows.forEach(function (r) { r.addEventListener('pointerenter', function () { show(r); }); r.addEventListener('focus', function () { show(r); }); });
   });
 
+  // Phone: the hero plays its clips one after another, 2.5s each.
+  var reel = document.querySelector('.reel');
+  if (reel && !still && window.matchMedia('(max-width: 560px)').matches) {
+    var clips = reel.querySelectorAll('video'), cur = 0;
+    reel.classList.add('cycle');
+    clips.forEach(function (v) { v.preload = 'auto'; });
+    clips[0].classList.add('on');
+    setInterval(function () {
+      if (document.hidden) return;
+      var next = (cur + 1) % clips.length;
+      try { clips[next].currentTime = 0; } catch (e) {}
+      clips[next].play().catch(function () {});
+      clips[next].classList.add('on'); clips[cur].classList.remove('on');
+      cur = next;
+    }, 2500);
+  }
+
   // Phone: swipe row dots for the work films.
   var row = document.querySelector('.work-grid.six'), dots = document.querySelector('.dots');
   if (row && dots) {
@@ -63,6 +80,18 @@
     new IntersectionObserver(function (es) { pastHero = !es[0].isIntersecting; set(); }).observe(hero);
     new IntersectionObserver(function (es) { atContact = es[0].isIntersecting; set(); }).observe(contact);
   }
+
+  // How we work film: muted autoplay, one tap for sound (restarts so the full offer is heard).
+  document.querySelectorAll('.film .sound').forEach(function (b) {
+    var v = b.parentNode.querySelector('video');
+    b.addEventListener('click', function () {
+      var on = v.muted;
+      v.muted = !on;
+      if (on) { v.currentTime = 0; v.play().catch(function () {}); }
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.textContent = on ? 'Sound off' : 'Sound on';
+    });
+  });
 
   // Lightbox.
   var box = document.getElementById('box'), bv = box.querySelector('video');

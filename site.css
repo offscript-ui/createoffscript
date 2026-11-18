@@ -122,8 +122,10 @@ h2 { font-size: clamp(28px, 2.6vw, 36px); line-height: 1.15; font-weight: 500; l
 
 /* Process: BTS film + steps */
 .process { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(24px, 4vw, 64px); align-items: start; }
-.process .film { border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 5; background: var(--d-bg); position: sticky; top: 24px; }
+.process .film { border-radius: var(--r); overflow: hidden; aspect-ratio: 1 / 1; background: var(--d-bg); position: sticky; top: 24px; }
 .process .film video { width: 100%; height: 100%; object-fit: cover; }
+/* Sound toggle: white on #111 = 18.9:1 */
+.film .sound { position: absolute; right: 14px; bottom: 14px; z-index: 2; min-height: 38px; padding: 0 14px; border-radius: 999px; background: #111111; color: #FFFFFF; border: 1px solid #75756F; font-size: 14px; font-weight: 500; }
 .steps { border-top: 1px solid var(--line); }
 .steps li { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 28px 0; border-bottom: 1px solid var(--line); }
 .steps h3 { font-size: 20px; font-weight: 500; margin-bottom: 6px; }
@@ -183,7 +185,7 @@ dialog button { position: fixed; top: 20px; right: 24px; color: #FFFFFF; backgro
   .work-grid .card:nth-child(3) { grid-column: span 2; aspect-ratio: 16 / 10; }
   .services, .process, .cats { grid-template-columns: 1fr; }
   .preview { position: relative; top: 0; aspect-ratio: 16 / 11; order: -1; }
-  .process .film { position: relative; top: 0; aspect-ratio: 16 / 11; }
+  .process .film { position: relative; top: 0; aspect-ratio: 1 / 1; }
 }
 @media (max-width: 560px) {
   .reel { grid-template-columns: 1fr; height: 58svh; }
@@ -211,6 +213,9 @@ dialog button { position: fixed; top: 20px; right: 24px; color: #FFFFFF; backgro
   .nav .btn { display: inline-flex; min-height: 38px; padding: 0 14px; font-size: 14px; }
 
   .reel { height: 56svh; min-height: 340px; }
+  .reel.cycle { display: block; position: relative; }
+  .reel.cycle video { display: block !important; position: absolute; inset: 0; opacity: 0; transition: opacity .25s linear; }
+  .reel.cycle video.on { opacity: 1; }
   .hero-copy { padding: 24px 0 28px; }
   .hero-copy .wrap { gap: 20px; }
   .hero h1 { font-size: 30px; }
@@ -243,7 +248,6 @@ dialog button { position: fixed; top: 20px; right: 24px; color: #FFFFFF; backgro
   .svc p:not(.label) { display: none; }
   .svc li { font-size: 13px; padding: 5px 10px; }
 
-  .process .film { aspect-ratio: 16 / 9; }
   .steps li { grid-template-columns: 40px 1fr; gap: 8px; padding: 16px 0; align-items: baseline; }
   .steps h3 { font-size: 18px; margin: 0; }
   .steps p { display: none; }
